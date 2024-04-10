@@ -1,4 +1,6 @@
+import com.aluracursos.screenmatch.calculos.CalculadoraDeTiempo;
 import com.aluracursos.screenmatch.modelos.Pelicula;
+import com.aluracursos.screenmatch.modelos.Serie;
 
 public class Principal {
     public static void main(String[] args) {
@@ -18,17 +20,27 @@ public class Principal {
         System.out.println(miPelicula.getTotalDeEvaluaciones());
         System.out.println(miPelicula.calculaMedia());
 
+        Serie miSerie = new Serie();
+        miSerie.setNombre("Chernobyl");
+        miSerie.setFechaDeLanzamiento(2019);
+        miSerie.setTemporadas(1);
+        miSerie.setMinutosPorEpisodio(60);
+        miSerie.setEpisodiosPorTemporada(5);
+        miSerie.muestraFichaTecnica();
+        System.out.println(miSerie.getDuracionEnMinutos());
 
+        Pelicula otraPelicula = new Pelicula();
+        otraPelicula.setNombre("Ghost in the Shell");
+        otraPelicula.setFechaDeLanzamiento(1995);
+        otraPelicula.setDuracionEnMinutos(83);
+        otraPelicula.muestraFichaTecnica();
 
+        CalculadoraDeTiempo calculadora = new CalculadoraDeTiempo();
+        calculadora.incluye(miPelicula);
+        calculadora.incluye(miSerie);
+        calculadora.incluye(otraPelicula);
+        System.out.println("Tiempo necesario para ver el total de títulos: "
+                + calculadora.getTiempoTotal() + " minutos");
 
-
-
-//        com.aluracursos.screenmatch.modelos.Pelicula otraPelicula = new com.aluracursos.screenmatch.modelos.Pelicula();
-//        otraPelicula.nombre = "Ghost in the Shell";
-//        otraPelicula.fechaDeLanzamiento = 1995;
-//        otraPelicula.duracionEnMinutos = 83;
-//
-//        otraPelicula.muestraFichaTecnica();
-//        otraPelicula.evalua(10);
     }
 }
