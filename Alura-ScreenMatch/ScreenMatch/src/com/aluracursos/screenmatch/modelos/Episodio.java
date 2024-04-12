@@ -1,8 +1,8 @@
 package com.aluracursos.screenmatch.modelos;
 
-import com.aluracursos.screenmatch.calculos.Clasificacion;
+import com.aluracursos.screenmatch.calculos.Clasificable;
 
-public class Episodio implements Clasificacion {
+public class Episodio implements Clasificable {
     private int numero;
     private String nombre;
     private Serie serie;
