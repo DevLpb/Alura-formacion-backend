@@ -1,17 +1,18 @@
 package com.aluracursos.screenmatch.modelos;
 
+import com.aluracursos.screenmatch.exception.ErrorEnConversionDeDuracionException;
 import com.google.gson.annotations.SerializedName;
 
 public class Titulo implements Comparable<Titulo> {
 
     @SerializedName("Title")
-        private String nombre;
+    private String nombre;
     @SerializedName("Year")
-        private int fechaDeLanzamiento;
-        private int duracionEnMinutos;
-        private boolean incluidoEnElPlan;
-        private double sumaDeEvaluaciones;
-        private int totalDeEvaluaciones;
+    private int fechaDeLanzamiento;
+    private int duracionEnMinutos;
+    private boolean incluidoEnElPlan;
+    private double sumaDeEvaluaciones;
+    private int totalDeEvaluaciones;
 
     public Titulo(String nombre, int fechaDeLanzamiento) {
         this.nombre = nombre;
@@ -21,60 +22,65 @@ public class Titulo implements Comparable<Titulo> {
     public Titulo(TituloOmdb miTituloOmdb) {
         this.nombre = miTituloOmdb.title();
         this.fechaDeLanzamiento = Integer.valueOf(miTituloOmdb.year());
-        this.duracionEnMinutos = Integer.valueOf(miTituloOmdb.runtime().substring(0, 2));
+        if (miTituloOmdb.runtime().contains("N/A")) {
+            throw new ErrorEnConversionDeDuracionException(
+                    "No pude convertir la duración, porque contiene un N/A");
+        }
+        this.duracionEnMinutos = Integer.valueOf(
+                miTituloOmdb.runtime().substring(0, 3).replace(" ", ""));
     }
 
     public String getNombre() {
-            return nombre;
-        }
+        return nombre;
+    }
 
-        public int getFechaDeLanzamiento() {
-            return fechaDeLanzamiento;
-        }
+    public int getFechaDeLanzamiento() {
+        return fechaDeLanzamiento;
+    }
 
-        public int getDuracionEnMinutos() {
-            return duracionEnMinutos;
-        }
+    public int getDuracionEnMinutos() {
+        return duracionEnMinutos;
+    }
 
-        public boolean isIncluidoEnElPlan() {
-            return incluidoEnElPlan;
-        }
+    public boolean isIncluidoEnElPlan() {
+        return incluidoEnElPlan;
+    }
 
-        public void setNombre(String nombre) {
-            this.nombre = nombre;
-        }
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
 
-        public void setFechaDeLanzamiento(int fechaDeLanzamiento) {
-            this.fechaDeLanzamiento = fechaDeLanzamiento;
-        }
+    public void setFechaDeLanzamiento(int fechaDeLanzamiento) {
+        this.fechaDeLanzamiento = fechaDeLanzamiento;
+    }
 
-        public void setDuracionEnMinutos(int duracionEnMinutos) {
-            this.duracionEnMinutos = duracionEnMinutos;
-        }
+    public void setDuracionEnMinutos(int duracionEnMinutos) {
+        this.duracionEnMinutos = duracionEnMinutos;
+    }
 
-        public void setIncluidoEnElPlan(boolean incluidoEnElPlan) {
-            this.incluidoEnElPlan = incluidoEnElPlan;
-        }
+    public void setIncluidoEnElPlan(boolean incluidoEnElPlan) {
+        this.incluidoEnElPlan = incluidoEnElPlan;
+    }
 
-        public int getTotalDeEvaluaciones() {
-            return totalDeEvaluaciones;
-        }
+    public int getTotalDeEvaluaciones() {
+        return totalDeEvaluaciones;
+    }
 
-        public void muestraFichaTecnica() {
-            System.out.println("El nombre de la película es: " + getNombre());
-            System.out.println("Su fecha de lanzamiento es: " + getFechaDeLanzamiento());
-            System.out.println("Su duración en minutos es: " + getDuracionEnMinutos());
-            System.out.println("Pelicula incluida en el plan: " + isIncluidoEnElPlan());
-        }
+    public void muestraFichaTecnica() {
+        System.out.println("El nombre de la película es: " + getNombre());
+        System.out.println("Su fecha de lanzamiento es: " + getFechaDeLanzamiento());
+        System.out.println("Su duración en minutos es: " + getDuracionEnMinutos());
+        System.out.println("Pelicula incluida en el plan: " + isIncluidoEnElPlan());
+    }
 
-        public void evalua(double nota) {
-            sumaDeEvaluaciones += nota;
-            totalDeEvaluaciones++;
-        }
+    public void evalua(double nota) {
+        sumaDeEvaluaciones += nota;
+        totalDeEvaluaciones++;
+    }
 
-        public double calculaMedia() {
-            return sumaDeEvaluaciones / totalDeEvaluaciones;
-        }
+    public double calculaMedia() {
+        return sumaDeEvaluaciones / totalDeEvaluaciones;
+    }
 
     @Override
     public int compareTo(Titulo otroTitulo) {
