@@ -1,0 +1,26 @@
+[
+  {
+    "Nombre": "Drive",
+    "FechaDeLanzamiento": 2011,
+    "DuracionEnMinutos": 100,
+    "IncluidoEnElPlan": false,
+    "SumaDeEvaluaciones": 0.0,
+    "TotalDeEvaluaciones": 0
+  },
+  {
+    "Nombre": "Fight Club",
+    "FechaDeLanzamiento": 1999,
+    "DuracionEnMinutos": 139,
+    "IncluidoEnElPlan": false,
+    "SumaDeEvaluaciones": 0.0,
+    "TotalDeEvaluaciones": 0
+  },
+  {
+    "Nombre": "Ghost in the Shell",
+    "FechaDeLanzamiento": 2017,
+    "DuracionEnMinutos": 107,
+    "IncluidoEnElPlan": false,
+    "SumaDeEvaluaciones": 0.0,
+    "TotalDeEvaluaciones": 0
+  }
+]
