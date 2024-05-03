@@ -3,6 +3,7 @@ package com.aluracursos.alurascreenmatchspring;
 import com.aluracursos.alurascreenmatchspring.model.DatosEpisodio;
 import com.aluracursos.alurascreenmatchspring.model.DatosSerie;
 import com.aluracursos.alurascreenmatchspring.model.DatosTemporadas;
+import com.aluracursos.alurascreenmatchspring.principal.Principal;
 import com.aluracursos.alurascreenmatchspring.service.ConsumoAPI;
 import com.aluracursos.alurascreenmatchspring.service.ConvierteDatos;
 import org.springframework.boot.CommandLineRunner;
@@ -21,6 +22,7 @@ public class AlurascreenmatchspringApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
+		/*
 //		System.out.println("Hola mundo en Spring");
 		var consumoApi = new ConsumoAPI(); //Instancia de la clase ConsumoAPI
 		var json = consumoApi.obtenerDatos("http://www.omdbapi.com/?t=game+of+thrones&apikey=28749dc6");
@@ -52,5 +54,9 @@ public class AlurascreenmatchspringApplication implements CommandLineRunner {
 		for (DatosTemporadas datosTemp : temporadas) {
 			System.out.println(datosTemp);
 		}
+		 */
+
+		Principal principal = new Principal();
+		principal.mostrarMenu();
 		}
 	}

@@ -3,6 +3,7 @@ package com.aluracursos.alurascreenmatchspring.service;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+//Implementa la interaz "IConvierteDatos", que tiene un método genérico
 public class ConvierteDatos implements IConvierteDatos{
     private ObjectMapper objectMapper = new ObjectMapper();
 
