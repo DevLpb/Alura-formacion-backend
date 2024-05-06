@@ -3,6 +3,7 @@ package com.aluracursos.alurascreenmatchspring;
 import com.aluracursos.alurascreenmatchspring.model.DatosEpisodio;
 import com.aluracursos.alurascreenmatchspring.model.DatosSerie;
 import com.aluracursos.alurascreenmatchspring.model.DatosTemporadas;
+import com.aluracursos.alurascreenmatchspring.principal.EjemploStreams;
 import com.aluracursos.alurascreenmatchspring.principal.Principal;
 import com.aluracursos.alurascreenmatchspring.service.ConsumoAPI;
 import com.aluracursos.alurascreenmatchspring.service.ConvierteDatos;
@@ -58,5 +59,8 @@ public class AlurascreenmatchspringApplication implements CommandLineRunner {
 
 		Principal principal = new Principal();
 		principal.mostrarMenu();
+
+//		EjemploStreams ejemploStreams = new EjemploStreams();
+//		ejemploStreams.muestraEjemplo();
 		}
 	}
